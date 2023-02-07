@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    transition: all 2s;
+}
+
+.zhezhao {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 100px;
+    background: #eee;
+    opacity: 1;
+    z-index: 6;
+}
+
+.move {
+    position: relative;
+    width: 500px;
+    height: 200px;
+}
+
+.main {
+    position: absolute;
+    top: 0;
+    /* visibility: visible; */
+    z-index: 5;
+    transition: all 2s;
+}
+
+.trYdown {
+    transform: translateY(100px);
+    transition: all 2s;
+}
+
+.trup {
+    transform: translateY(-100px);
+    transition: all 2s;
+}
+
+.link {
+    position: relative;
+    width: 160px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 5px;
+    /* text-align: center; */
+    font-size: 18px;
+    color: black;
+    background: #CCCCFF;
+    margin: 20px auto;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 6;
+    transition: all 2s linear;
+}
+
+.link img {
+    position: absolute;
+    right: 6px;
+    top: 20%;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    /* z-index: 1; */
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: all 0.5s linear;
+}
+
+.rotate1 {
+    transform: rotate(0);
+    transition: all 0.5s linear;
+}
+
+.navigation {
+    position: relative;
+    width: 500px;
+    height: 100px;
+    background: #DDDDDD;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 18px;
+    transition: all 2s;
+}
+
+.navigation ul {
+    /* position: relative; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+}
+
+.navigation ul li {
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+    position: relative;
+}
+
+.navigation ul li a {
+    position: relative;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
+.navigation ul li a .icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+}
+
+.navigation ul li.active .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+    transform: translateY(-3px);
+    transition: all 0.5s;
+}
+
+.navigation ul li .text {
+    position: absolute;
+    bottom: -18px;
+    transform: scale(0);
+    transition: 0.25s;
+}
+
+.navigation ul li:hover a .text {
+    transform: scale(1);
+    font-size: 18px;
+}
+
+.acc {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    /* left: 0; */
+    border-radius: 18px;
+    transition: all 0.5s;
+}
+
+.towma {
+    display: none;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    /* left: 10px; */
+    top: -100px;
+    z-index: 8;
+    transition: all 0.65s ease-in-out;
+}
+
+.towma img {
+    width: 120px;
+    height: 120px;
+    border-radius: 18px;
+}
+
+.navigation ul li:nth-child(1).active~.acc {
+    background-color: red;
+    box-shadow: 0 9px 18px;
+    /* transform: translateX(calc(100px * 0)); */
+}
+
+.navigation ul li:nth-child(2).active~.acc {
+    background-color: #1296db;
+    box-shadow: 0 9px 18px;
+    /* transform: translateX(calc(100px * 1)); */
+}
+
+.navigation ul li:nth-child(3).active~.acc {
+    background-color: grey;
+    /* opacity: 0.9; */
+    box-shadow: 0 9px 18px;
+    /* transform: translateX(calc(100px * 2)); */
+}
+
+.navigation ul li:nth-child(4).active~.acc {
+    background: linear-gradient(to left top, red, aqua);
+    opacity: 0.9;
+    box-shadow: 0 9px 18px;
+    /* transform: translateX(calc(100px * 3)); */
+}
+
+.navigation ul li:nth-child(5).active~.acc {
+    background-color: blue;
+    box-shadow: 0 9px 18px;
+    /* transform: translateX(calc(100px * 4)); */
+}
+
+
+/* .navigation ul li:nth-child(1).active~.towma {
+    transform: translateY(105px);
+    transition: all 1.5s;
+}
+
+.navigation ul li:nth-child(2).active~.towma {
+    transform: translateY(105px);
+    transition: all 1.5s;
+}
+
+.navigation ul li:nth-child(3).active~.towma {
+    transform: translateY(105px);
+    transition: all 1.5s;
+}
+
+.navigation ul li:nth-child(4).active~.towma {
+    transform: translateY(105px);
+    transition: all 1.5s;
+}
+
+.navigation ul li:nth-child(5).active~.towma {
+    transform: translateY(105px);
+    transition: all 1.5s;
+} */

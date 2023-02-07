@@ -1,0 +1,16 @@
+{
+    "folders": [
+		{
+			"path": "../../教育厅检查题库练习/demo-悦听player"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../教育厅检查题库练习/猫先生测验"
+		}
+	],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "个人网页联系方式"
+    }
+}
