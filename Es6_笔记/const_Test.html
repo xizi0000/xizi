@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            width: 480px;
+            height: 40px;
+        }
+        #zi{
+            width: 480px;
+            height: 40px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+        }
+        #zi>li{
+            background-color: antiquewhite;
+        }
+        #zi>li:hover{
+            background-color: palevioletred;
+        }
+        #zi>li:hover .m{
+            /* display: flex; */
+            visibility: visible;
+            opacity: 1;
+            height: 160px;
+        }
+        #zi>li li{
+            background-color:aquamarine;
+        }
+  
+        #zi>li li:hover{
+            background-color: white;
+        }
+        #zi>li{
+            list-style: none;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            /* background: red; */
+            text-align: center;
+            font-size: 18px;
+        }
+        #zi>li li{
+            list-style: none;
+            width: 480px;
+            height: 40px;
+            line-height: 40px;
+            /* background: red; */
+            text-align: center;
+            font-size: 18px;
+        }
+        #zi ul{
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            background-color: aqua;
+            display: flex;
+            visibility: hidden;
+            opacity: 0;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 480px;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 1s 0.25s,height 1s ease;
+        }
+        .p{
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            /* z-index: 5; */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+            <ul id="zi">
+                <li>一
+                    <ul class="m">
+                        <li>第1个</li>
+                        <li>第2个</li>
+                        <li>第3个</li>
+                        <li>第4个</li>
+                    </ul>
+                </li>
+                <li>二
+                    <ul class="m">
+                        <li>第5个</li>
+                        <li>第6个</li>
+                        <li>第7个</li>
+                        <li>第8个</li>
+                    </ul>
+                </li>
+                <li>三
+                    <ul class="m">
+                        <li>第9个</li>
+                        <li>第10个</li>
+                        <li>第11个</li>
+                        <li>第12个</li>
+                    </ul>
+                </li>
+                <li>四
+                    <ul class="m">
+                        <li>第13个</li>
+                        <li>第14个</li>
+                        <li>第15个</li>
+                        <li>第16个</li>
+                    </ul>
+                </li>
+            </ul>
+    </nav>
+    <!-- <div class="p"></div> -->
+    <!-- <script type="module">
+        import * as z1 from "./Promise异步操作.js"
+        // console.log(z1);
+        console.log(z1.con.age+1);
+    </script> -->
+    <!-- <script src="./conust-test.js"></script> -->
+    <script src="./Promise异步操作.js" type="module"></script>
+    <!-- <script src="./Promise异步操作.js"></script> -->
+    <!-- <script type="module">
+        import * as m1 from "./模块化语法.js";
+        console.log(m1);
+    </script> -->
+</body>
+</html>
