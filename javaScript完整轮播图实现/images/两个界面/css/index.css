@@ -1,0 +1,303 @@
+#logoall {
+    background-color: #FFF;
+}
+
+#login {
+    background-color: #f3eff0;
+    height: 35px;
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#login h2 {
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+    float: left;
+}
+
+#loginp {
+    font-size: 14px;
+    color: #333;
+    float: right;
+    margin-top: 5px;
+}
+
+#loginp a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#loginp a:hover {
+    text-decoration: none;
+    margin-left: 3px;
+    margin-right: 3px;
+    color: #00F;
+}
+
+#logo {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    clear: both;
+}
+
+#logo1 {
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    margin: auto 10px;
+}
+
+#logo2 {
+    height: 50px;
+    width: 200px;
+    position: absolute;
+}
+
+#naviall {
+    background-color: #ff847c;
+    height: 50px;
+}
+
+#navi {
+    background-color: #ff847c;
+    height: 50px;
+    width: 1200px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#navi ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    position: absolute;
+    left: 40px;
+}
+
+#navi ul li {
+    float: left;
+}
+
+#navi ul li a {
+    font-size: 20px;
+    line-height: 50px;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    height: 50px;
+    width: 180px;
+    margin-left: 5px;
+}
+
+#navi ul li a:hover {
+    font-size: 20px;
+    line-height: 50px;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    background-color: #F03;
+}
+
+#navi ul li .shouye {
+    background-color: #F03;
+    height: 50px;
+    width: 180px;
+    margin-left: 5px;
+}
+
+#picture {
+    width: 1200px;
+    background-image: url(images/%E8%BD%AE%E6%92%AD%E5%9B%BE1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#D1 {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
+    margin-top: 35px;
+}
+
+#D2 {
+    width: 1200px;
+    height: 55px;
+    background-color: #FFF;
+}
+
+#D2 p {
+    font-size: 24px;
+    color: #333;
+    margin-left: 60px;
+    line-height: 55px;
+}
+
+#D3 {
+    width: 1200px;
+    height: 400px;
+    margin-top: 15px;
+}
+
+#D4 {
+    width: 1200px;
+    height: 250px;
+}
+
+#D5 {
+    width: 1200px;
+    height: 130px;
+    margin-top: 15px;
+}
+
+#D5 ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#D5 ul li {
+    float: left;
+    margin-right: 2px;
+}
+
+.E1 {
+    width: 1180px;
+    margin: 30px auto;
+    padding: 10px;
+    position: relative;
+}
+
+.E2 {
+    width: 100%;
+    height: 50px;
+    margin: 25px auto;
+    text-align: center;
+    line-height: 50px;
+    background-color: #FF847D;
+    color: #FFF;
+    font-size: 24px;
+}
+
+.E4 {
+    position: absolute;
+    color: #000;
+    background-color: #FFF;
+    padding: 10px;
+    font-size: 24px;
+    left: 450px;
+    top: 85px;
+}
+
+.E4 span {
+    font-size: 16px;
+}
+
+.E4 span1 {
+    font-size: 16px;
+    color: #999;
+}
+
+.E3 {
+    border: 2px solid #999;
+    width: 100%;
+    height: 530px;
+    background-color: #FFF;
+    position: relative;
+}
+
+.E5 {
+    width: 200px;
+    height: 50px;
+    background-color: #FF847C;
+    color: #FFF;
+    text-align: center;
+    line-height: 50px;
+    font-family: "宋体";
+    font-size: 24px;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+#version {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.wrap {
+    height: 282px;
+    width: 100%;
+    position: relative;
+}
+
+.banner {
+    height: 282px;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+}
+
+.banner_img {
+    width: 1200px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.banner_img img {
+    width: 1200px;
+    height: 300px;
+}
+
+.btn {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+}
+
+.btn span {
+    background-color: #999;
+    display: inline-block;
+    height: 5px;
+    width: 37px;
+}
+
+.btn span.on {
+    background: #FFF;
+}
+
+a:link {
+    text-decoration: none;
+    color: #333;
+}
+
+.E5 a {
+    color: #FFF;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+a:active {
+    text-decoration: none;
+}

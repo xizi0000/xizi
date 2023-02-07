@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#tx {
+    width: 400px;
+    height: 258px;
+    font-size: 20px;
+    font: '微软雅黑';
+}
+
+.l {
+    position: relative;
+    width: 700px;
+    height: 300px;
+    /*background: pink;*/
+    margin: 200px auto;
+    font-size: 18px;
+}
+
+.write {
+    width: 300px;
+    height: 300px;
+}
+
+#aaa {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 300px;
+    height: 260px;
+    background-color: #44cef6;
+}
+
+.write li {
+    position: relative;
+    margin: 6px 50px;
+    list-style-type: decimal;
+    /*text-align: center;*/
+}
+
+button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 700px;
+    height: 35px;
+    font-size: 20px;
+    color: white;
+    font-family: white;
+    background: #fc5531;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50px;
+    border: 3px solid #fc5531;
+}
+
+b {
+    position: absolute;
+    right: -40px;
+}
+
+.ccc:hover {
+    background-color: #ff847c;
+}

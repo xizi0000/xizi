@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片轮播完整实现</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to top, white, black);
+            transition: all 2s;
+        }
+        /* 容器 */
+        
+        .container {
+            position: relative;
+            width: 700px;
+            height: 450px;
+            border: 2px solid #666;
+            overflow: hidden;
+        }
+        
+        #imgs {
+            width: 8400px;
+            height: 450px;
+            transition: all 0.25s ease;
+        }
+        
+        img {
+            width: 700px;
+            height: 450px;
+        }
+        
+        #imgs li {
+            float: left;
+        }
+        /* 上下张按钮 */
+        
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 90px;
+            background-color: #ddd;
+            text-align: center;
+            line-height: 90px;
+            font-size: 35px;
+            opacity: 0.5;
+            z-index: 3;
+            cursor: pointer;
+            /* transition: all 0.6s ease 0.5s; */
+        }
+        
+        .icon {
+            width: 35px;
+            height: 65px;
+        }
+        
+        .container span:nth-child(2) {
+            position: absolute;
+            left: -60PX;
+            top: 40%;
+        }
+        
+        .container span:nth-child(3) {
+            position: absolute;
+            right: -60px;
+            top: 40%;
+        }
+        
+        .dotcontainer {
+            position: absolute;
+            right: 10PX;
+            bottom: 6PX;
+            width: 210px;
+            height: 30px;
+            z-index: 9;
+            overflow: hidden;
+        }
+        /* 小圆点 */
+        
+        #dot {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 385px;
+            height: 30px;
+        }
+        
+        #dot li {
+            width: 30px;
+            height: 30px;
+            color: black;
+            font-size: 18px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            /* opacity: 0.5; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul id="imgs">
+            <li><img src="images/pic (1).jpeg" alt=""></li>
+            <li><img src="images/pic (2).jpeg" alt=""></li>
+            <li><img src="images/pic (3).jpeg" alt=""></li>
+            <li><img src="images/pic (4).jpeg" alt=""></li>
+            <li><img src="images/pic (5).jpeg" alt=""></li>
+            <li><img src="images/pic (6).jpeg" alt=""></li>
+            <li><img src="images/pic (7).jpeg" alt=""></li>
+            <li><img src="images/pic (8).jpeg" alt=""></li>
+            <li><img src="images/pic (9).jpeg" alt=""></li>
+            <li><img src="images/pic (10).jpeg" alt=""></li>
+            <li><img src="images/pic (11).jpeg" alt=""></li>
+            <li><img src="images/pic (1).jpeg" alt=""></li>
+        </ul>
+        <span class="prev"><svg t="1666104437930" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2560" width="200" height="200"><path d="M230.4 512 742.4 0l51.2 51.2-460.8 460.8 460.8 460.8-51.2 51.2L230.4 512z" p-id="2561"></path></svg></span>
+        <span class="next"><svg t="1666104489710" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3464" width="200" height="200"><path d="M264.896 1010.112l497.728-497.728L264.128 13.888 218.88 59.136l453.248 453.248-452.48 452.48z" p-id="3465"></path></svg></span>
+        <div class="dotcontainer">
+            <ul id="dot">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // 获取需要操作的DOM元素
+        let box = document.querySelector('.container')
+        let imgs = document.getElementById('imgs')
+        let previmg = document.querySelector('.prev')
+        let nextimg = document.querySelector('.next')
+        let dotul = document.getElementById('dot')
+        let dots = document.getElementById('dot').getElementsByTagName('li')
+        let left = 0;
+        var timer;
+        toRun();
+        // 播放图片
+        function toRun() {
+            if (left <= -7700) {
+                left = 0
+            }
+            // 计算当前是第几张
+            let m = Math.floor(-left / 700);
+            imgs.style.marginLeft = left + 'px';
+            var n = (left % 700 == 0) ? n = 2300 : n = 5;
+            left -= 5;
+            timer = setTimeout(toRun, n);
+            dotMove(m);
+            numberliMove(m);
+        }
+
+        // 定位图片
+        function changePrevAndNext(picn) {
+            let cut = -(picn * 700);
+            imgs.style.marginLeft = cut + 'px';
+            left = cut;
+        }
+        // 上一张图
+        previmg.onclick = function() {
+                let prev = Math.floor(-left / 700) - 1;
+                if (prev < 0) {
+                    prev = 10
+                }
+                changePrevAndNext(prev)
+            }
+            // 下一张图
+        nextimg.onclick = function() {
+                let next = Math.floor(-left / 700) + 1;
+                if (next > 11) {
+                    next = 0
+                }
+                changePrevAndNext(next)
+            }
+            // 小圆点切换
+        dotul.onclick = function() {
+                let tar = event.target;
+                let clickimg = tar.innerHTML - 1;
+                changePrevAndNext(clickimg)
+                dotMove(clickimg)
+
+            }
+            // 小圆点样式变化
+        function dotMove(m) {
+            for (let index = 0; index < dots.length; index++) {
+                dots[index].style.backgroundColor = 'rgba(255, 255, 255, 0.3)'
+            }
+            dots[m].style.backgroundColor = 'brown'
+        }
+        // 小圆点向左置顶
+        function numberliMove(m) {
+            if (m < 6) {
+                dotul.style.marginLeft = -m * 35 + 'px'
+            } else if (m >= 6) {
+                dotul.style.marginLeft = -175 + 'px'
+            }
+        }
+        // 鼠标悬浮按键动画，轮播暂停
+        box.onmouseover = function() {
+                previmg.style.left = 6 + 'px';
+                nextimg.style.right = 6 + 'px'
+                clearTimeout(timer)
+            }
+            // 鼠标离开按键动画，轮播开始
+        box.onmouseout = function() {
+            previmg.style.left = -60 + 'px';
+            nextimg.style.right = -60 + 'px'
+            toRun()
+        }
+    </script>
+</body>
+
+</html>

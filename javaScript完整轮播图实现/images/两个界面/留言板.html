@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/liuyan.css" type="text/css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- 头部导航-->
+
+    <nav id="guding">
+        <div id="login">
+            <h2>欢迎！</h2>
+            <div id="loginp"><a href="login.html">登录</a>|<a href="login.html">注册</a>|<a href="carport.html">购物车</a></div>
+        </div>
+        <div id="logoall">
+            <div id="logo">
+                <div id="logo1">
+                    <a href="index.html">
+                        <img src="image/logo.png" width="200" height="90" />
+                    </a>
+                </div>
+                <!-- <div id="logo2"><img src="image/loginbg2.jpg" width="100" height="25" /></div> -->
+            </div>
+        </div>
+        <div id="naviall">
+            <div id="navi">
+                <ul>
+                    <li class="222">
+                        <div class="shouye"><a href="index.html">首页</a></div>
+                    </li>
+                    <li class="ccc"><a href="留言板.html">在线留言</a></li>
+                    <li><a href="">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="addHeight"></div>
+    <!--头部结束-->
+    <div class="l">
+        <textarea id="tx"></textarea>
+        <div class="write">
+            <ul id="aaa"></ul>
+            <button>发送</button>
+        </div>
+
+    </div>
+    <!--尾部-->
+    <div id="version">
+        <p>关于我们 |网站导航| 联系我们 | 法律声明| 网站帮助<br />
+        </p>
+        <p>客服电话：0771-2631000|QQ邮箱：2631316491@qq.com<br /></p>
+    </div>
+    <!--尾部结束-->
+    <script type="text/javascript">
+        // 获取对象
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('#aaa');
+        text.value = "请发表留言";
+        text.onfocus = function() {
+            this.select();
+            this.style.color = 'black';
+            if (text.value == '请发表留言') {
+                this.value = '';
+            }
+        }
+        text.onblur = function() {
+            if (text.value == '') {
+                this.value = '请发表留言';
+                this.style.color = '#75878a';
+            } else if (text.value != '请发表留言') {
+                this.style.color = 'black';
+            }
+        }
+        btn.onclick = function() {
+            var li = document.createElement('li');
+            ul.insertBefore(li, ul.children[0]);
+            if (text.value !== '' & text.value != '请发表留言') {
+                li.innerHTML = text.value + '<b>删除</b>';
+            } else {
+                alert("输入留言才能发布哦!");
+                ul.removeChild(ul.children[0]);
+            }
+        }
+        ul.addEventListener('click', function(e) {
+            if (e.target.tagName == 'B') {
+                ul.removeChild(e.srcElement.parentNode);
+            }
+        })
+        $('.shouye').css('background', '#ff847c').parents('.222').css('background', '#ff847c').siblings('.ccc').children('a').css('background', '#F03');
+    </script>
+</body>
+
+</html>
