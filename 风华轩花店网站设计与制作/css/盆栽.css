@@ -1,0 +1,139 @@
+.movebox{
+    left: calc(100px*3);
+}
+#app{
+    width: 1200px;
+    margin: 0 auto;
+}
+.flshow{
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+.flshow ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #BDAEAD;
+    width: 1200px;
+    height: 800px;
+}
+.adto svg{
+    width: 35px;
+    height: 35px;
+}
+.adto{
+    position: absolute;
+    right: 8%;
+    bottom: 3%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    line-height: 30px;
+    color: #C21F30;
+    font-size: 2.5rem;
+    background: white;
+}
+.adto:hover{
+    background:thistle;
+}
+.item{
+    position: relative;
+    width: 230px;
+    height: 300px;
+    background: #fff;
+    border-radius: 8px;
+    /* box-sizing: content-box; */
+    border: 2px solid white;
+    margin: 0 30px;
+    overflow: hidden;
+    transition: all 1s;
+}
+.item:hover{
+    border: 2px solid red;
+}
+.item:hover span{
+    color: #F03752;
+    transform: scale(1.1);
+}
+.item:hover img{
+    transform: scale(1.15);
+}
+.item span{
+    display: inline-block;
+    width: 220px;
+    font-size: 14px;
+    color: #867E76;
+    text-align: center;
+    transition: all 0.5s;
+}
+.item p{
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+}
+.item img{
+    width: 210px;
+    height: 230px;
+    margin: 8px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.wubanhuaa{
+    width: 1200px;
+    height: 200px;
+    display: block;
+    margin: 30px auto;
+}
+.fenlei{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1200px;
+    height: 100px;
+    background: white;
+    border-top: 4px solid #F3BF4C;
+    border-bottom: 4px solid #F3BF4C;
+}
+.fenlei span{
+    display: inline-block;
+    width: 160px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: black;
+    font-size: 1.4rem;
+}
+.fenlei span:hover{
+    color: #F3BF4C;
+}
+@media screen and (max-width:900px){
+    .wubanhuaa{
+        width: 600px;
+    }
+    .fenlei{
+        width: 600px;
+        height: 60px;
+        /* height: 200px;
+        flex-wrap: wrap;
+         */
+         margin: 0 auto;
+    }
+    .fenlei span{
+        width: 80px;
+        font-size: 16px;
+        line-height: 60px;
+        height: 60px;
+    }
+    .flshow ul{
+        width: 600px;
+        height: 1400px;
+    }
+    #app{
+        width: 600px;
+    }
+}

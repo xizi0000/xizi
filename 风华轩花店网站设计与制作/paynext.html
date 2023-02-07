@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .kit {
+            text-align: center;
+            margin-top: 35px;
+        }
+        
+        #number {
+            color: #f06754;
+        }
+        
+        html,
+        body .pinggroud {
+            width: 100%;
+            height: 100%;
+            /* background-color: #e65e6c; */
+            background-color: rgba(148, 196, 210, 0.3);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .pinggroud {
+            border-radius: 15%;
+        }
+        
+        .monster {
+            width: 110px;
+            height: 110px;
+            background-color: #f06754;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            margin-left: 10px;
+            box-shadow: 0px 10px 10px 0px rgba(110, 110, 110, 0.3);
+            position: relative;
+            animation: jumping 1.2s infinite alternate;
+        }
+        
+        .monster::before,
+        .monster::after {
+            content: '';
+            height: 10px;
+            width: 20%;
+            background-color: #fff;
+            display: block;
+            border-radius: 10px;
+            position: absolute;
+            top: -10px;
+        }
+        
+        .eye::before {
+            content: '';
+            height: 10px;
+            width: 30%;
+            background-color: #fff;
+            display: block;
+            border-radius: 10px;
+            position: absolute;
+            left: -35px;
+            top: 36px;
+        }
+        
+        .eye::after {
+            content: '';
+            height: 10px;
+            width: 30%;
+            background-color: #fff;
+            display: block;
+            border-radius: 10px;
+            position: absolute;
+            right: -35px;
+            top: 36px;
+        }
+        
+        .eye::after {
+            animation: shou1 1.9s infinite alternate;
+        }
+        
+        .eye::before {
+            animation: shou2 1.9s infinite alternate;
+        }
+        
+        .monster::before {
+            right: 45%;
+            transform: rotate(30deg);
+        }
+        
+        .monster::after {
+            left: 45%;
+            transform: rotate(-30deg);
+        }
+        
+        .monster .eye {
+            height: 42%;
+            width: 42%;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .monster .eye .eyeball {
+            height: 50%;
+            width: 50%;
+            /* justify-content: center; */
+            border-radius: 50%;
+            background-color: #074177;
+            animation: eyemove 1.8s infinite alternate;
+        }
+        
+        .monster .mouth {
+            height: 10%;
+            width: 30px;
+            margin-top: 10px;
+            background-color: #fff;
+            border-radius: 3px;
+            animation: mouse 1.6s infinite alternate;
+        }
+        
+        @keyframes jumping {
+            50% {
+                top: 0px;
+                box-shadow: 0px 10px 10px 0px rgba(110, 110, 10, 0.3);
+            }
+            100% {
+                top: -50px;
+                box-shadow: 0px 120px 10px 0px rgba(110, 110, 10, 0.2);
+            }
+        }
+        
+        @keyframes eyemove {
+            0%,
+            10% {
+                transform: translate(-50%);
+            }
+            90%,
+            100% {
+                transform: translate(50%);
+            }
+        }
+        
+        @keyframes shou1 {
+            0%,
+            15% {
+                transform: rotate(65deg);
+            }
+            16%,
+            30% {
+                transform: scale(1.5);
+            }
+            70%,
+            84% {
+                transform: scale(0.6);
+            }
+            85%,
+            100% {
+                transform: rotate(-65deg);
+            }
+        }
+        
+        @keyframes shou2 {
+            0%,
+            15% {
+                transform: rotate(-65deg);
+            }
+            16%,
+            30% {
+                transform: scale(1.5);
+            }
+            70%,
+            84% {
+                transform: scale(0.6);
+            }
+            85%,
+            100% {
+                transform: rotate(65deg);
+            }
+        }
+        
+        @keyframes mouse {
+            0%,
+            15% {
+                transform: translate(0px, 6px);
+            }
+            85%,
+            100% {
+                transform: translate(0px, -6px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pinggroud">
+        <div class="monster">
+            <div class="eye">
+                <div class="eyeball"></div>
+            </div>
+            <div class="mouth"></div>
+        </div>
+        <div class="kit">
+            付款成功，<span id="number">5</span> 秒后回到首页...
+            <br />
+            <br />
+            <a href="index.html" style="text-decoration: none;color: #f06754; font-size: 18px;">点击立即跳转</a>
+        </div>
+    </div>
+
+    <script>
+        var number = 5;
+
+        function CYKsetTime() {
+            document.getElementById("number").innerText = number;
+            number--;
+            if (number < 0) {
+                window.location.href = "index.html";
+            }
+        }
+        setInterval('CYKsetTime()', 1000);
+    </script>
+</body>
+
+</html>

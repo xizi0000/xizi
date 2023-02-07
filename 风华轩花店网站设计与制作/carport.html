@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的购物车</title>
+    <meta name="description" content="">
+    <meta name="Keywords" content="">
+    <!-- 引入facicon.ico网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- 引入css 初始化的css 文件 -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 引入公共样式的css 文件 -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- 引入car css -->
+    <link rel="stylesheet" href="css/car.css">
+    <script src="js/vue.js"></script>
+    <!-- 先引入jquery -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- 顶部快捷导航start -->
+
+    <!-- 顶部快捷导航end  -->
+    <div class="car-header">
+        <div class="w">
+            <div class="car-logo">
+                <img src="images/image/gwc.png" alt="" width=100px ,height=60px> <b>购物车</b>
+                <a href="javascript:;">返回</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="c-container">
+        <div class="w">
+            <div class="cart-filter-bar">
+                <em>全部商品</em>
+            </div>
+            <!-- 购物车主要核心区域 -->
+            <div class="cart-warp">
+                <!-- 头部模块 -->
+                <div class="cart-thead">
+                    <div class="t-checkbox">
+                        <input type="checkbox" name="" id="" class="checkall"> 全选
+                    </div>
+                    <div class="t-goods">商品</div>
+                    <div class="t-price">单价</div>
+                    <div class="t-num">数量</div>
+                    <div class="t-sum">小计</div>
+                    <div class="t-action">操作</div>
+                </div>
+                <!-- 商品列表模块 -->
+                <div id="app" class="cart-item-list">
+                    <ul>
+                        <li v-for="(hua,index) in fllist" :key="hua.id">
+                            <div class="cart-item">
+                                <div class="p-checkbox">
+                                    <input type="checkbox" class="j-checkbox">
+                                </div>
+                                <div class="p-goods">
+                                    <div class="p-img">
+                                        <img :src="hua.src" alt="">
+                                    </div>
+                                    <div class="p-msg">{{hua.name}}</div>
+                                </div>
+                                <div class="p-price">￥{{hua.price}}</div>
+                                <div class="p-num">
+                                    <div class="quantity-form">
+                                        <a href="javascript:;" class="decrement">-</a>
+                                        <input type="text" class="itxt" value="1">
+                                        <a href="javascript:;" class="increment">+</a>
+                                    </div>
+                                </div>
+                                <div class="p-sum">￥{{hua.price}}</div>
+                                <div class="p-action">
+                                    <a @click="delhua(hua.id)" href="javascript:;"><img src="images/image/de.png" alt=""></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 结算模块 -->
+        <div class="footbar">
+            <div class="cart-floatbar  car-xf2">
+                <div class="select-all">
+                    <input type="checkbox" name="" id="" class="checkall">全选
+                </div>
+                <div class="operation">
+                    <a href="javascript:;" class="remove-batch"> 删除选中的商品</a>
+                    <a href="javascript:;" class="cleanall">清理购物车</a>
+                </div>
+                <div class="toolbar-right">
+                    <div class="amount-sum">已经选<em>1</em>件商品</div>
+                    <div class="price-sum">总价： <em>￥12.60</em></div>
+                    <div class="btn-area">去结算</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer start -->
+
+    <div class="pay">
+        <div class="erweima">
+            <img src="/images/pay.jpg" alt="">
+            <span class="payed">支付完成请点击这里</span>
+            <span class="clo">我不想支付</span>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>已经到底啦！</h1>
+    </div>
+    <!-- footer end -->
+ 
+    <script>
+        new Vue({
+            el:'#app',
+            data(){
+                return{
+                    fllist:JSON.parse(localStorage.getItem('fllist')) || [
+                            // {name:'向日葵',price:35,src:'/flimages/向日葵.jpg',id:14},
+                            // {name:'蓝色妖姬',price:666,src:'/flimages/蓝色妖姬.jpg',id:12},
+                            // {name:'百合',price:120,src:'/flimages/百合.jpg',id:9}
+                        ]
+                }
+            },
+            methods:{
+                delhua(id){
+                    const delbuy = JSON.parse(localStorage.getItem('buy'))
+                    for( let i in this.fllist){
+                        if(this.fllist[i].id==id){
+                            this.fllist.splice(i,1)
+                            localStorage.setItem('fllist',JSON.stringify(this.fllist))
+                        }
+                    }
+                    if(delbuy.id==id){
+                        localStorage.removeItem('buy')
+                        // localStorage.setItem('fllist',JSON.stringify(this.fllist))
+                    }
+                }
+            },
+            mounted(){
+                const adbuy = JSON.parse(localStorage.getItem('buy'))
+                this.fllist.unshift(adbuy)
+            },
+            beforeUpdate(){
+                localStorage.setItem('fllist',JSON.stringify(this.fllist))
+            }
+        })
+    </script>
+    <script src="js/carport交互.js"></script>
+</body>
+
+</html>
