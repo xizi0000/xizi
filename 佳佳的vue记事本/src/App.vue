@@ -245,6 +245,7 @@ body {
   padding: 10px;
   border: 1px solid black;
   border-radius: 15px;
-  background-color: #C4CBCF;
+  /* background-color: #C4CBCF; */
+  background-color: #FFCCCC;
 }
 </style>

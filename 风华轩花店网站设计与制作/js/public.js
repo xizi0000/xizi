@@ -1,4 +1,19 @@
 $(function(){
+    // 搜索框事件
+    $('.sousuo').focus(function(){
+        $('.dimsearch').show()
+    })
+    $('.sousuo').blur(function(){
+        setTimeout(()=>{
+            $('.dimsearch').hide()
+        },500)
+    })
+    $('.dimsearch li').click(function(){
+        $('.sershow').show()
+    })
+    $('.clo').click(function(){
+        $('.sershow').hide()
+    })
     var falg = true
     function message(){ 
         if(falg){
@@ -18,22 +33,22 @@ $(function(){
         }, 800);
         return false;
     })
-    $('.sousuo').keyup(function (e) { 
-        const value =  $('.sousuo').val().toString()
-        if(value=='花'){
-            window.location.href = 'index.html'
-            $('body,html').animate({
-                scrollTop: 900
-            }, 500);
-            // return false;
-        }else if(value=='盆栽'){
-            window.location.href = '盆栽.html'
-            $('body,html').animate({
-                scrollTop: 800
-            }, 500);
-            return false;
-        }
-    });
+    // $('.sousuo').keyup(function (e) { 
+    //     const value =  $('.sousuo').val().toString()
+    //     if(value=='花'){
+    //         window.location.href = 'index.html'
+    //         $('body,html').animate({
+    //             scrollTop: 900
+    //         }, 500);
+    //         // return false;
+    //     }else if(value=='盆栽'){
+    //         window.location.href = '盆栽.html'
+    //         $('body,html').animate({
+    //             scrollTop: 800
+    //         }, 500);
+    //         return false;
+    //     }
+    // });
 })
 
 let lis = document.querySelectorAll('.miannav li')
@@ -83,6 +98,7 @@ window.addEventListener('scroll', function () {
         },300)
     }
     if(top<150){
+        $('.sousuo').blur()
         $('.xfsearch').css('top','-50px')
         $('.header').css('background','#8ABCD1')
         $('.miannav a').css('color','white')
@@ -104,7 +120,6 @@ $('.close').click(function(){
 $('.seaver .sitem:nth-child(3)').click(function(){
     window.location.href = 'carport.html'
 })
-
 
 //联系我们
 let list = document.querySelectorAll('.list');
